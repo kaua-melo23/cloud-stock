@@ -8,7 +8,7 @@ google-auth
 google-auth-oauthlib
 google-auth-httplib2
 pytz
-psycopg2
+psycopg2-binary
 mysql-connector
 sqlalchemy
 pymysql
