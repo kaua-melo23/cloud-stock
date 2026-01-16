@@ -12,7 +12,7 @@ class DBManager:
     def __init__(self):
         # Configuração da Conexão Segura
         self.db_user = os.getenv('DB_USER')
-        self.db_pass = os.getenv('DB_PASS')
+        self.db_pass = os.getenv('DB_PASSWORD')
         self.db_host = os.getenv('DB_HOST')
         self.db_name = os.getenv('DB_NAME')
         
