@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Control</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. ONDE A APLICAÇÃO RODA (Navbar e Conteúdo) -->
+    <div id="app-root">
+        <!-- O JS vai injetar a Sidebar e o Content AQUI DENTRO -->
+    </div>
+
+    <!-- 
+       MODAL DE ATENDIMENTO EM LOTE (BATCH)
+       Fica aqui fora para não ser apagado quando muda de tela.
+    -->
+    <div class="modal fade" id="fulfillModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title" id="modalTitle">Atender Chamado</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            
+            <h6 id="modalModel" class="mb-3 text-muted"></h6>
+    
+            <!-- Área de Busca -->
+            <div class="card p-3 mb-3 bg-light">
+                <label class="form-label"><b>Bipar Equipamento</b> (Tag, Serial ou Tombamento)</label>
+                <div class="input-group">
+                    <input type="text" id="itemSearchInput" class="form-control" placeholder="Digite ou bipe aqui...">
+                    <button class="btn btn-info text-white" type="button" onclick="window.searchItem()">
+                        <i class="fas fa-search"></i> Buscar
+                    </button>
+                </div>
+                <div id="searchResultArea"></div>
+                
+                <div class="mt-2 text-end">
+                    <button id="btnAddItem" class="btn btn-success" disabled>
+                        <i class="fas fa-plus-circle"></i> Adicionar ao Lote
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Lista de Itens no Lote -->
+            <h6>Itens Selecionados:</h6>
+            <table class="table table-bordered table-striped" id="batchTable">
+                <thead>
+                    <tr>
+                        <th>Modelo</th>
+                        <th>Serial</th>
+                        <th>Tag</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+    
+            <!-- Opção de E-mail -->
+            <div class="form-check mt-3">
+                <input class="form-check-input" type="checkbox" id="checkSendEmail" checked>
+                <label class="form-check-label" for="checkSendEmail">
+                    Enviar e-mail único com a lista
+                </label>
+            </div>
+    
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="btnFinishBatch" onclick="window.finishBatch()" disabled>
+                Finalizar Atendimento
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 
+        🔴 CORREÇÃO DO ERRO 'Unexpected token import':
+        1. O atributo type="module" é OBRIGATÓRIO.
+        2. APAGUE qualquer outra tag <script src="requests.js"> que houver. 
+           Somente o main.js deve ser carregado aqui.
+    -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
