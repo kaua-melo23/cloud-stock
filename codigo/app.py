@@ -17,7 +17,7 @@ from routes.dashboard import bp as dashboard_bp
 # ----------------------------------------------------------------
 # 1. Carregar variáveis .env
 # ----------------------------------------------------------------
-load_dotenv()
+load_dotenv("acessos.env")
 
 REQUIRED_ENV = ['DB_HOST', 'DB_USER', 'DB_PASS', 'DB_NAME']
 
