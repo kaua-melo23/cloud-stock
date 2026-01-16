@@ -6,7 +6,7 @@ from werkzeug.security import generate_password_hash
 from dotenv import load_dotenv
 
 # Carrega as variáveis do arquivo .env
-load_dotenv(.env)
+load_dotenv(acessos.env)
 
 class DBManager:
     def __init__(self):
