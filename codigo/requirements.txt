@@ -1,0 +1,11 @@
+Flask
+Flask-Login
+Werkzeug
+python-dotenv
+openpyxl
+google-api-python-client
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+pytz
+
